@@ -12,16 +12,9 @@ def str2float(s):
     def char2num(s):
         return DIGITS[s]
 
-    n = 0
-    #截取小数点前和小数点后的字符串
-    for x in s:
-
-        if x =='.':
-            integer = reduce(fn, map(char2num, s[:n]))
-            little = 0.1 * reduce(fuck, map(char2num, s[:n:-1]))
-            #print('integer = ' , integer , '\nfloat = ' , little ,'\ns[:n:-1] = ', s[:n:-1])
-            return integer + little
-        n += 1
+    integer = reduce(fn, map(char2num, s.split('.')[0]))
+    little = 0.1 * reduce(fuck, map(char2num, s.split('.')[1][::-1]))
+    return integer + little
 
 # 测试:
 print('str2float(\'123.456\') =', str2float('123.456'))
