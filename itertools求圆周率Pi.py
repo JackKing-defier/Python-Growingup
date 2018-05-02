@@ -11,10 +11,10 @@ def pi(N):
     # step 4: 求和:
     ns = itertools.takewhile(lambda x: x <= 2*N-1, itertools.count(1,2))
     L = []
-    i = 0
+    c = 1
     for x in ns:
-        L.append(4/x * pow(-1,i))
-        i +=1
+        L.append(4/x * c)
+        c = -c
     return sum(L)
 
 
